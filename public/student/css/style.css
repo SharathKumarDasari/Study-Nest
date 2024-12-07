@@ -1,0 +1,113 @@
+.n1{
+    /* background-image: linear-gradient(to right, orange , yellow,rgb(169, 253, 43)); */
+    /* background-color: rgb(209, 233, 230); */
+    background: linear-gradient(45deg, #4CAF50, #81C784);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+
+}
+.c1{
+    /* background-color: rgb(179, 185, 185); */
+    margin-top: 100px;
+    align-items: center;
+}
+.c2{
+    /* background-color: #ff9900; */
+    align-items: center;
+}
+.c3{
+    /* background-color: rgb(19, 235, 40); */
+    align-items: center;
+}
+.c4{
+    /* background-color: #f5f107; */
+    align-items: center;
+}
+.c1,.c2,.c3,.c4{
+    color: rgb(37, 32, 103);
+    text-align: center;
+    padding-top:20px;
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+    border-radius: 20px;
+    text-shadow: 3px 2px 4px;
+}
+.footer{
+  /* background-image: linear-gradient(to top,rgb(54, 251, 54),yellow); */
+  background-color: white;
+  position:sticky;
+}
+.sem1,.sem2{
+    border: 2px solid rgb(192, 199, 192); border-radius: 10px;
+}
+.ul1,.ul2,.ul3,.ul4,.ul5,.ul6,.ul7,.ul8{
+    display: none;
+    position: relative;
+}
+li a{
+    text-decoration: none;
+    color: rgb(16, 30, 228);
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 20px;
+    font-size: large;
+}
+.sem1:hover .ul1,
+.sem2:hover .ul2,
+.sem1:hover .ul3,
+.sem2:hover .ul4,
+.sem1:hover .ul5,
+.sem2:hover .ul6,
+.sem1:hover .ul7,
+.sem2:hover .ul8 {
+    display: block;
+    position: relative;
+    text-decoration: none;
+    text-align: left;
+    list-style: square;
+}
+
+h4{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+.login{
+    width: 400px;
+    border: 1px solid rgb(190, 183, 183);
+    box-shadow: 6px 4px 50px 1px;
+    border-radius: 10px;
+    padding: 40px;
+    margin-top: 100px;
+}
+.career-heading{
+    margin-top: 10px;
+    /* text-overflow: clip;
+    text-shadow: 5px 4px 8px ;
+    text-decoration: underline; */
+    color: rgb(18, 22, 22);
+    font-family: "Libre Baskerville", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+.addsub{
+    display: none;
+}
+.sem1:hover .addsub{
+    display: flex;
+    align-items: end;
+}
+.sem2:hover .addsub{
+    display: flex;
+    align-items: end;
+}
+li{
+    display: flex;
+    justify-content:space-between ;
+}
+.upload{
+    display: none;
+}
+.deleted{
+    display: none;
+}
+
+  
