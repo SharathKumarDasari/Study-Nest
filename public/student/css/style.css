@@ -1,14 +1,36 @@
 .n1{
     /* background-image: linear-gradient(to right, orange , yellow,rgb(169, 253, 43)); */
     /* background-color: rgb(209, 233, 230); */
-    background: linear-gradient(45deg, #4CAF50, #81C784);
+    background-color: rgb(59, 54, 54);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
 
-
+.navbar-brand{
+    margin: 15px;
 }
 
 body{
-    background-image: linear-gradient(45deg, #EA9344 15%, #B2EDD7 85%);
+    height: 100%;
+    background-image: linear-gradient(35deg, #EA9344 15%, #B2EDD7 85%);
+    font-family: "Quicksand", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300px;
+    font-style: normal;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.st-body{
+    height: 110vh;
+    background-image: linear-gradient(35deg, #EA9344 15%, #B2EDD7 85%);
+    font-family: "Quicksand", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300px;
+    font-style: normal;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .c1{
@@ -45,10 +67,10 @@ body{
 .sem1,.sem2{
     border: 2px solid rgb(192, 199, 192); border-radius: 10px;
 }
-.ul1,.ul2,.ul3,.ul4,.ul5,.ul6,.ul7,.ul8{
+/* .ul1,.ul2,.ul3,.ul4,.ul5,.ul6,.ul7,.ul8{
     display: none;
     position: relative;
-}
+} */
 li a{
     text-decoration: none;
     color: rgb(16, 30, 228);
@@ -56,7 +78,7 @@ li a{
     font-weight: 20px;
     font-size: large;
 }
-.sem1:hover .ul1,
+/* .sem1:hover .ul1,
 .sem2:hover .ul2,
 .sem1:hover .ul3,
 .sem2:hover .ul4,
@@ -69,7 +91,7 @@ li a{
     text-decoration: none;
     text-align: left;
     list-style: square;
-}
+} */
 
 h4{
     font-family: Arial, Helvetica, sans-serif;
@@ -96,6 +118,9 @@ h4{
 .addsub{
     display: none;
 }
+.sem1,.sem2{
+    background-color: white;
+}
 .sem1:hover .addsub{
     display: flex;
     align-items: end;
@@ -115,4 +140,126 @@ li{
     display: none;
 }
 
-  
+.an1{
+    color: white;
+    font-size: 15px;
+    transition: transform 0.5s ease; 
+}  
+.an1:hover{
+    color: #B2EDD7;
+    transform: scale(1.2);
+}
+
+
+.para{
+    font-family:monospace;
+    font-size: xx-large;
+    padding: 20px 0px 0px 10px;
+    letter-spacing: 0.3px;
+}
+
+.con1{
+    background-color:white;
+    border-radius: 20px;
+    padding: 20px;
+}
+.con1-head{
+    margin: 20px;
+    font-family:monospace;
+    font-size: x-large;
+    text-align: left;
+}
+
+.custom-hr {
+    width: 15%;  /* Change the width to whatever you prefer */
+    height: 5px;  /* Change the height to whatever you prefer */
+    background-color: #737578;  /* Change the color to whatever you prefer */
+    border: none;  /* Remove the default border */
+    margin: 20px auto;  /* Center the HR and add top and bottom margins */
+    border-radius: 20px;
+    margin-left: 40px;
+    margin-bottom: 30px;
+    /* align-items: left; */
+    
+}
+
+.paras{
+    margin-left: 50px;
+    text-align: left;
+}
+
+.con1-body{
+    display: flex;
+    justify-content: space-between;
+}
+.navbar-brand{
+    margin: 15px;
+}
+#para{
+    padding-top: 30px;
+}
+#about-h-text{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1px;
+    letter-spacing: 0.5px;
+    margin-bottom: 40px;
+}
+.about-body{
+    background-color: white;
+    border-radius: 20px;
+    margin: 30px 30px;
+
+}
+.about-b-para{
+    margin-top: 10px;
+    padding: 30px;
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    letter-spacing: 0.5px;
+}
+
+.contact{
+    margin: 30px 30px;
+    color: rgb(63, 59, 59);
+}
+.contact-mail{
+    color: rgb(63, 59, 59);
+    text-decoration: none;
+}
+.icons a{
+    margin-right: 10px;
+}
+.icons img { 
+    font-size: 24px; /* Adjust the icon size if needed */
+    color: #000; /* Adjust the icon color if needed */
+    transition: transform 0.3s ease; /* Add transition for smooth effect */ 
+} 
+.icons img:hover { 
+    transform: scale(1.3); /* Increase size by 20% on hover */
+}
+.contact h2{
+    font-size: 30px;
+    transition: transform 0.6s ease; 
+}
+.contact h2:hover{
+    transform:scale(1.2) ;
+    color: rgb(241, 242, 247);
+}
+.alt dt{
+    font-size: 18px;
+    transition: transform 0.5s ease; 
+}
+.alt dt:hover{
+    transform:scale(1.2) ;
+    color: rgb(253, 251, 250);
+}
+.alt dd{
+    font-size: 15px;
+}
+.alt dd:hover{
+    transform:scale(1.2) ;
+    color: rgb(255, 255, 255);
+}
+.alt dd a:hover{
+    transform:scale(1.2) ;
+    color: rgb(255, 255, 254);
+}

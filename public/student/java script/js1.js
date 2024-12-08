@@ -15,6 +15,9 @@ function fourth(){
 function home(){
   window.location.href='home.html';
 }
+function aboutpage(){
+  window.location.href='about-us.html';
+}
 
 
 document.addEventListener("DOMContentLoaded", () => {

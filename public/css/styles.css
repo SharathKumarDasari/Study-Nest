@@ -6,10 +6,13 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-image: url('../images/4893775.webp');
 }
 
 .container {
-    background: #fff;
     padding: 40px;
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
@@ -18,12 +21,12 @@ body {
 
 h1 {
     margin-bottom: 20px;
-    color: #333;
+    color: white;
 }
 
 h2 {
     margin-bottom: 20px;
-    color: #666;
+    color:white;
 }
 
 .input-group {
@@ -35,7 +38,7 @@ h2 {
     display: block;
     text-align: left;
     margin-bottom: 5px;
-    color: #666;
+    color: #fffefe;
 }
 
 .input-group input,
@@ -61,4 +64,13 @@ button:hover {
 }
 .register-container{
     display: none;
+}
+
+.form-border{
+    text-align: center;
+    border: 2px solid rgb(118, 117, 117);
+    backdrop-filter: blur(10px);
+}
+#para,#para a{
+    color: white;
 }
