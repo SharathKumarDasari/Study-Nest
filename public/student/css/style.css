@@ -6,6 +6,11 @@
 
 
 }
+
+body{
+    background-image: linear-gradient(45deg, #EA9344 15%, #B2EDD7 85%);
+}
+
 .c1{
     /* background-color: rgb(179, 185, 185); */
     margin-top: 100px;
