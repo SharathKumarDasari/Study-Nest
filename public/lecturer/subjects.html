@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="css/style.css">
     <script src="java script/js1.js"></script>
 </head>
-<body>
+<body class="st-body">
     <nav class="navbar navbar-expand-lg bg-body-transparent sticky-top n1">
         <div class="container-fluid">
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
@@ -31,22 +31,20 @@
           </div>
         </div>
       </nav>
-      <div class="container">
-        <div class="container c1 btn btn-primary" onclick="first()">
-            <h1>1st Year</h1>
-            Resources
+      <div class="container d-flex years">
+        <div class="year1">
+          <a class="btn"  onclick="first()"><img src="../images/year1.png" class="card-img-top" alt="..."></a>
         </div>
-        <div class="container c2 btn btn-primary" onclick="second()">
-            <h1>2nd Year</h1>
-            Resources
+        <div class="year2">
+          <a class="btn " onclick="second()"><img src="../images/year2.png" class="card-img-top" alt="..."></a>
         </div>
-        <div class="container c3 btn btn-primary" onclick="third()">
-            <h1>3rd Year</h1>
-            Resources
+      </div>
+      <div class="container d-flex years">
+        <div class="year2">
+          <a class="btn " onclick="third()()"><img src="../images/year3.png" class="card-img-top" alt="..."></a>
         </div>
-        <div class="container c4 btn btn-primary" onclick="fourth()">
-            <h1>4th Year</h1>
-            Resources
+        <div class="year2">
+          <a class="btn " onclick="fourth()"><img src="../images/year4.png" class="card-img-top" alt="..."></a>
         </div>
       </div>
       

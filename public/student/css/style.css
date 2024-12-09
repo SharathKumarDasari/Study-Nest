@@ -263,3 +263,21 @@ li{
     transform:scale(1.2) ;
     color: rgb(255, 255, 254);
 }
+
+.year1,.year2{
+    width: 270px; /* Set the desired width */ 
+    object-fit: cover;
+    transition: transform 0.6s ease; 
+    border: 3px solid grey;
+    margin: 20px;
+    border-radius: 20px;
+}
+.years{
+    display: flex;
+    justify-content: space-around;
+}
+
+.year1:hover,
+.year2:hover{
+    transform: scale(1.2);
+    background-color: rgb(135, 225, 225);}

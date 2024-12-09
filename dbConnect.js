@@ -4,7 +4,7 @@ const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology:
 
 async function connectDB() {
     await client.connect();
-    console.log("Connected to MongoDB Atlas");
+    console.log("Connected to MongoDB");
     return client.db('schoolPortal').collection('users');
 }
 
