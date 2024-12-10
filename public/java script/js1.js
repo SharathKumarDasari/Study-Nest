@@ -22,6 +22,7 @@ function addSubject(semester) {
 
   // Display the subject on the page
   displaySubject(semester, subjectName);
+  addSub(subjectName);
 }
 
 function displaySubject(semester, subjectName) {
@@ -31,6 +32,7 @@ function displaySubject(semester, subjectName) {
   listItem.innerHTML = `
       <a href="">${subjectName}</a>
       <div>
+          <button class="btn btn-secondary ml-3" onclick="openSubject('${subjectName}', this)">open</button>
           <button class="btn btn-warning ml-3 upload" data-toggle="modal" data-target="#uploadModal">Upload</button>
           <button onclick="deleteSubject('${semester}', '${subjectName}', this)" class="btn btn-danger deleted">Delete</button>
       </div>
@@ -71,6 +73,13 @@ function deleteSubject(semester, subjectName, button) {
   let subjects = JSON.parse(localStorage.getItem(`semester_${semester}`)) || [];
   subjects = subjects.filter(subject => subject !== subjectName);
   localStorage.setItem(`semester_${semester}`, JSON.stringify(subjects));
+  deleteSub(subjectName);
+}
+function openSubject(subjectName,button){
+  const listItem = button.closest('li');
+  if (listItem) {
+    window.location.href=`../${subjectName}.html`;
+  }   
 }
 
 function loadSubjects(semester) {
@@ -95,4 +104,25 @@ document.addEventListener("DOMContentLoaded", () => {
 document.addEventListener("DOMContentLoaded", () => {
   initializeSemesters([7, 8]);
 });
+
+
+function addSub(subjectName) {
+  console.log('Adding subject:', subjectName); // Logging for debugging
+  if (subjectName) {
+      fetch(`/create-page/${subjectName}`, {
+          method: 'POST'
+      }).then(response => response.text())
+        .catch(err => console.error('Error:', err));
+  } 
+}
+
+function deleteSub(subjectName) {
+  console.log('Deleting subject:', subjectName); // Logging for debugging
+  if (subjectName) {
+      fetch(`/delete-page/${subjectName}`, {
+          method: 'DELETE'
+      }).then(response => response.text())
+        .catch(err => console.error('Error:', err));
+  } 
+}
 

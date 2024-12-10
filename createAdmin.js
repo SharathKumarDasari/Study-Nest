@@ -7,7 +7,7 @@ async function createAdmin() {
 
     try {
         await client.connect();
-        const database = client.db('schoolPortal');
+        const database = client.db('studynest');
         const collection = database.collection('users');
 
         const admin = {
