@@ -25,6 +25,29 @@ function addSubject(semester) {
   addSub(subjectName);
 }
 
+
+function deleteFile(subjectName, filename) {
+  if (confirm(`Are you sure you want to delete the file ${filename}?`)) {
+      fetch(`/delete-file/${subjectName}/${filename}`, {
+          method: 'DELETE'
+      })
+      .then(response => {
+          if (response.ok) {
+              alert('File deleted successfully.');
+              location.reload(); // Reload the page to reflect changes
+          } else {
+              alert('Error deleting file.');
+          }
+      })
+      .catch(error => {
+          console.error('Error deleting file:', error);
+          alert('Error deleting file.');
+      });
+  }
+}
+
+
+
 function displaySubject(semester, subjectName) {
   let semesterList = document.querySelector(`.ul${semester}`);
   const listItem = document.createElement('li');
@@ -32,36 +55,56 @@ function displaySubject(semester, subjectName) {
   listItem.innerHTML = `
       <a href="">${subjectName}</a>
       <div>
-          <button class="btn btn-secondary ml-3" onclick="openSubject('${subjectName}', this)">open</button>
-          <button class="btn btn-warning ml-3 upload" data-toggle="modal" data-target="#uploadModal">Upload</button>
+          <button class="btn btn-secondary ml-3" onclick="openSubject('${subjectName}', this)">Open</button>
+          <button class="btn btn-warning ml-3 upload" data-toggle="modal" data-target="#uploadModal_${subjectName}">Upload</button>
           <button onclick="deleteSubject('${semester}', '${subjectName}', this)" class="btn btn-danger deleted">Delete</button>
       </div>
-      <div class="modal fade" id="uploadModal" tabindex="-1" role="dialog" aria-labelledby="uploadModalLabel" aria-hidden="true">
-              <div class="modal-dialog" role="document">
-                  <div class="modal-content">
-                      <div class="modal-header d-flex justify-content-between">
-                          <h5 class="modal-title" id="uploadModalLabel">Select a PDF to Upload</h5>
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                              <span aria-hidden="true">&times;</span>
-                          </button>
-                      </div>
-                      <form id="uploadForm" enctype="multipart/form-data">
+      <div class="modal fade" id="uploadModal_${subjectName}" tabindex="-1" role="dialog" aria-labelledby="uploadModalLabel_${subjectName}" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content shadow-lg">
+                  <div class="modal-header bg-primary text-white">
+                      <h5 class="modal-title" id="uploadModalLabel_${subjectName}">Upload PDF for ${subjectName}</h5>
+                  </div>
+                  <form id="uploadForm_${subjectName}" enctype="multipart/form-data">
                       <div class="modal-body">
-                          <input type="text" id="fileNameInput" name="fileName" placeholder="Enter file name" required>
-                          <input type="file" id="fileInput" name="file" multiple required>
-                          <div id="message"></div>
+                          <div class="form-group">
+                              <label for="fileInput_${subjectName}">Select File</label>
+                              <input type="file" class="form-control-file" id="fileInput_${subjectName}" name="file" required>
+                          </div>
+                          <div id="message_${subjectName}" class="text-danger"></div>
                       </div>
                       <div class="modal-footer">
-                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                          <button type="submit" class="btn btn-primary" id="uploadButton">Upload</button>
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                          <button type="submit" class="btn btn-primary" id="uploadButton_${subjectName}">Upload</button>
                       </div>
-                      </form>
-                  </div>
+                  </form>
               </div>
-        </div>
+          </div>
+      </div>
   `;
 
   semesterList.appendChild(listItem);
+
+  // Handle upload for the subject
+  const form = document.getElementById(`uploadForm_${subjectName}`);
+  form.addEventListener('submit', function (event) {
+      event.preventDefault();
+      const formData = new FormData(form);
+      formData.append('subject', subjectName);  // Add the subject name
+
+      fetch(`/upload/${subjectName}`, {
+          method: 'POST',
+          body: formData
+      })
+      .then(response => response.text())
+      .then(data => {
+          alert('File uploaded successfully.');
+      })
+      .catch(error => {
+          console.error('Error uploading file:', error);
+          alert('Error uploading file.');
+      });
+  });
 }
 
 function deleteSubject(semester, subjectName, button) {
@@ -75,12 +118,11 @@ function deleteSubject(semester, subjectName, button) {
   localStorage.setItem(`semester_${semester}`, JSON.stringify(subjects));
   deleteSub(subjectName);
 }
-function openSubject(subjectName,button){
-  const listItem = button.closest('li');
-  if (listItem) {
-    window.location.href=`../${subjectName}.html`;
-  }   
+
+function openSubject(subjectName, button) {
+  window.location.href = `/${subjectName}.html`;  // Open the subject's page directly
 }
+
 
 function loadSubjects(semester) {
   const subjects = JSON.parse(localStorage.getItem(`semester_${semester}`)) || [];
@@ -93,36 +135,19 @@ function initializeSemesters(semesters) {
 
 // Initialize subjects for semesters 1, 2, ... 8 on page load
 document.addEventListener("DOMContentLoaded", () => {
-  initializeSemesters([1, 2]);
+  initializeSemesters([1, 2, 3, 4, 5, 6, 7, 8]);
 });
-document.addEventListener("DOMContentLoaded", () => {
-  initializeSemesters([3, 4]);
-});
-document.addEventListener("DOMContentLoaded", () => {
-  initializeSemesters([5, 6]);
-});
-document.addEventListener("DOMContentLoaded", () => {
-  initializeSemesters([7, 8]);
-});
-
 
 function addSub(subjectName) {
-  console.log('Adding subject:', subjectName); // Logging for debugging
-  if (subjectName) {
-      fetch(`/create-page/${subjectName}`, {
-          method: 'POST'
-      }).then(response => response.text())
-        .catch(err => console.error('Error:', err));
-  } 
+  fetch(`/create-page/${subjectName}`, {
+      method: 'POST'
+  }).then(response => response.text())
+    .catch(err => console.error('Error:', err));
 }
 
 function deleteSub(subjectName) {
-  console.log('Deleting subject:', subjectName); // Logging for debugging
-  if (subjectName) {
-      fetch(`/delete-page/${subjectName}`, {
-          method: 'DELETE'
-      }).then(response => response.text())
-        .catch(err => console.error('Error:', err));
-  } 
+  fetch(`/delete-page/${subjectName}`, {
+      method: 'DELETE'
+  }).then(response => response.text())
+    .catch(err => console.error('Error:', err));
 }
-

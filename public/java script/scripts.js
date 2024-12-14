@@ -12,7 +12,7 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
     })
     .then(response => response.json())
     .then(data => {
-        alert(data.message);
+        // alert(data.message);
         if (data.redirect) {
             window.location.href = data.redirect;
         }

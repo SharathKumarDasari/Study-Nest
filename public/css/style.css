@@ -10,6 +10,7 @@ body{
     font-family: "Quicksand", sans-serif;
     font-optical-sizing: auto;
     font-weight: 300px;
+    overflow-x: hidden;
     font-style: normal;
 }
 

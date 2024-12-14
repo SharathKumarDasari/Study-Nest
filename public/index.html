@@ -7,9 +7,14 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+    <video autoplay muted loop id="myVideo">
+        <source src="./images/videoplayback (1).mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+    </video>
     <div class="container form-border">
-        <h1>Welcome to Study Nest</h1>
+       
         <div class="login-container" id="login-container">
+            <h1>Welcome to Study Nest</h1>
             <h2>Login</h2>
             <form id="loginForm" action="/auth/login" method="POST">
                 <div class="input-group">
@@ -21,10 +26,11 @@
                     <input type="password" id="password" name="password" required>
                 </div>
                 <button type="submit">Login</button>
-                <p id="para">dont have an account ? <a href="#" id="register">Register</a></p>
+                <p id="para">Don't have an account ? <a href="#" id="register">Register</a></p>
             </form>
         </div>
         <div class="register-container" id="register-container">
+            <h1>Welcome to Study Nest</h1>
             <h2>Register</h2>
             <form id="registerForm" action="/auth/register" method="POST">
                 <div class="input-group">
@@ -51,7 +57,7 @@
                     </select>
                 </div>
                 <button type="submit">Register</button>
-                <p>already registered ? <a href="#" id="login">Login</a></p>
+                <p id="para">Already registered ? <a href="#" id="login">Login</a></p>
             </form>
         </div>
     </div>

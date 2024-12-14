@@ -71,13 +71,7 @@ body{
     display: none;
     position: relative;
 } */
-li a{
-    text-decoration: none;
-    color: rgb(16, 30, 228);
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: 20px;
-    font-size: large;
-}
+
 /* .sem1:hover .ul1,
 .sem2:hover .ul2,
 .sem1:hover .ul3,
@@ -143,6 +137,10 @@ li{
 .an1{
     color: white;
     font-size: 15px;
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+    /* font-weight: 20px; */
+    font-size: large;
     transition: transform 0.5s ease; 
 }  
 .an1:hover{
@@ -254,6 +252,7 @@ li{
 }
 .alt dd{
     font-size: 15px;
+    transition: transform 0.5s ease; 
 }
 .alt dd:hover{
     transform:scale(1.2) ;
@@ -280,4 +279,8 @@ li{
 .year1:hover,
 .year2:hover{
     transform: scale(1.2);
-    background-color: rgb(135, 225, 225);}
+    background-color: rgb(135, 225, 225);
+}
+a{
+    text-decoration: none;
+}

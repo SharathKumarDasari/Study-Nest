@@ -68,13 +68,7 @@ body{
     display: block;
     position: relative;
 }
-li a{
-    text-decoration: none;
-    color: rgb(16, 30, 228);
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: 20px;
-    font-size: large;
-}
+
 .sem1:hover .ul1{
     display: block;
     position: relative;
@@ -154,16 +148,21 @@ h4{
     font-style: normal;
 }
 .addsub{
-    display: none;
+    display: block;
+    transition: transform 0.5s ease;
 }
-.sem1:hover .addsub{
+.addsub:hover{
+    transform: scale(1.05);
+}
+/* .sem1:hover .addsub{
     display: flex;
     align-items: end;
+    
 }
 .sem2:hover .addsub{
     display: flex;
     align-items: end;
-}
+} */
 li{
     display: flex;
     justify-content:space-between ;
@@ -172,11 +171,18 @@ li{
 .an1{
     color: white;
     font-size: 15px;
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+    /* font-weight: 20px; */
+    font-size: large;
     transition: transform 0.5s ease; 
 }  
 .an1:hover{
     color: #B2EDD7;
     transform: scale(1.2);
+}
+a{
+    text-decoration: none;
 }
 .sem1,.sem2{
     background-color: white;
@@ -285,6 +291,7 @@ li{
 }
 .alt dd{
     font-size: 15px;
+    transition: transform 0.5s ease; 
 }
 .alt dd:hover{
     transform:scale(1.2) ;
