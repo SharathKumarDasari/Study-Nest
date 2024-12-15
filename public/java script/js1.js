@@ -26,27 +26,6 @@ function addSubject(semester) {
 }
 
 
-function deleteFile(subjectName, filename) {
-  if (confirm(`Are you sure you want to delete the file ${filename}?`)) {
-      fetch(`/delete-file/${subjectName}/${filename}`, {
-          method: 'DELETE'
-      })
-      .then(response => {
-          if (response.ok) {
-              alert('File deleted successfully.');
-              location.reload(); // Reload the page to reflect changes
-          } else {
-              alert('Error deleting file.');
-          }
-      })
-      .catch(error => {
-          console.error('Error deleting file:', error);
-          alert('Error deleting file.');
-      });
-  }
-}
-
-
 
 function displaySubject(semester, subjectName) {
   let semesterList = document.querySelector(`.ul${semester}`);
@@ -64,7 +43,8 @@ function displaySubject(semester, subjectName) {
               <div class="modal-content shadow-lg">
                   <div class="modal-header bg-primary text-white">
                       <h5 class="modal-title" id="uploadModalLabel_${subjectName}">Upload PDF for ${subjectName}</h5>
-                      <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>                </div>
+                      <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>               
+                  </div>
                   <form id="uploadForm_${subjectName}" enctype="multipart/form-data">
                       <div class="modal-body">
                           <div class="form-group">
@@ -135,8 +115,17 @@ function initializeSemesters(semesters) {
 
 // Initialize subjects for semesters 1, 2, ... 8 on page load
 document.addEventListener("DOMContentLoaded", () => {
-  initializeSemesters([1, 2, 3, 4, 5, 6, 7, 8]);
+  initializeSemesters([1, 2]);
 });
+document.addEventListener("DOMContentLoaded", () => {
+    initializeSemesters([3, 4]);
+  });
+document.addEventListener("DOMContentLoaded", () => {
+    initializeSemesters([5, 6]);
+  });
+document.addEventListener("DOMContentLoaded", () => {
+    initializeSemesters([7, 8]);
+  });
 
 function addSub(subjectName) {
   fetch(`/create-page/${subjectName}`, {

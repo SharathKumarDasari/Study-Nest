@@ -1,4 +1,3 @@
-const { json } = require("express");
 
 function first(){
     window.location.href='first.html';

@@ -1,15 +1,42 @@
 
-                <html>
-                <head>
-                    <title>python</title>
-                </head>
-                <body>
-                    <h1>Welcome to python page</h1>
-                    <h3>Uploaded Files:</h3>
-                    <ul>
-                        <li><a href="/uploads/js1.js" target="_blank">js1.js</a></li><li><a href="/uploads/career-path-concept-illustration_114360-14174.jpg" target="_blank">career-path-concept-illustration_114360-14174.jpg</a></li>
-                    </ul>
-                    <div id="subjectPageContainer"></div>
-                </body>
-                </html>
+            <!DOCTYPE html>
+            <html lang="en">
+            <html>
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <style>
+                    .sub-body{
+                        height: 110vh;
+                        background-image: linear-gradient(35deg, #EA9344 15%, #B2EDD7 85%);
+                        font-family: "Quicksand", sans-serif;
+                        font-optical-sizing: auto;
+                        font-weight: 300px;
+                        font-style: normal;
+                        background-size: cover;
+                        background-repeat: no-repeat;
+                        background-position: center;
+                    }
+                </style>
+                <title>python</title>
+            </head>
+            <body class="sub-body">
+                <h1>Welcome to python page</h1>
+                <h3>Uploaded Files:</h3>
+                <ul>
+                    
+                <li>
+                    <a href="/uploads/js1.js" target="_blank">js1.js</a>
+                    <button onclick="deleteFile('python', 'js1.js')" class="btn btn-danger btn-sm ml-3">Delete</button>
+                </li>
             
+                <li>
+                    <a href="/uploads/career-path-concept-illustration_114360-14174.jpg" target="_blank">career-path-concept-illustration_114360-14174.jpg</a>
+                    <button onclick="deleteFile('python', 'career-path-concept-illustration_114360-14174.jpg')" class="btn btn-danger btn-sm ml-3">Delete</button>
+                </li>
+            
+                </ul>
+                <div id="subjectPageContainer"></div>
+            </body>
+            </html>
+        

@@ -59,12 +59,15 @@ app.post('/create-page/:subject', async (req, res) => {
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
                 <style>
                     .sub-body{
+                        height: 110vh;
                         background-image: linear-gradient(35deg, #EA9344 15%, #B2EDD7 85%);
                         font-family: "Quicksand", sans-serif;
                         font-optical-sizing: auto;
                         font-weight: 300px;
-                        overflow-x: hidden;
                         font-style: normal;
+                        background-size: cover;
+                        background-repeat: no-repeat;
+                        background-position: center;
                     }
                 </style>
                 <title>${subjectName}</title>
@@ -133,8 +136,25 @@ app.post('/upload/:subject', upload.single('file'), async (req, res) => {
         if (!fs.existsSync(subjectPagePath)) {
             // Page does not exist, create it
             const content = `
+                <!DOCTYPE html>
+                <html lang="en">
                 <html>
                 <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <style>
+                    .sub-body{
+                        height: 110vh;
+                        background-image: linear-gradient(35deg, #EA9344 15%, #B2EDD7 85%);
+                        font-family: "Quicksand", sans-serif;
+                        font-optical-sizing: auto;
+                        font-weight: 300px;
+                        font-style: normal;
+                        background-size: cover;
+                        background-repeat: no-repeat;
+                        background-position: center;
+                    }
+                </style>
                     <title>${subjectName}</title>
                 </head>
                 <body>
@@ -163,8 +183,25 @@ app.post('/upload/:subject', upload.single('file'), async (req, res) => {
             }).join('');
 
             const updatedContent = `
+                <!DOCTYPE html><!DOCTYPE html>
+                <html lang="en">
                 <html>
                 <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <style>
+                    .sub-body{
+                        height: 110vh;
+                        background-image: linear-gradient(35deg, #EA9344 15%, #B2EDD7 85%);
+                        font-family: "Quicksand", sans-serif;
+                        font-optical-sizing: auto;
+                        font-weight: 300px;
+                        font-style: normal;
+                        background-size: cover;
+                        background-repeat: no-repeat;
+                        background-position: center;
+                    }
+                </style>
                     <title>${subjectName}</title>
                 </head>
                 <body>
