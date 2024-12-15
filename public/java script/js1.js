@@ -64,7 +64,7 @@ function displaySubject(semester, subjectName) {
               <div class="modal-content shadow-lg">
                   <div class="modal-header bg-primary text-white">
                       <h5 class="modal-title" id="uploadModalLabel_${subjectName}">Upload PDF for ${subjectName}</h5>
-                  </div>
+                      <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>                </div>
                   <form id="uploadForm_${subjectName}" enctype="multipart/form-data">
                       <div class="modal-body">
                           <div class="form-group">

@@ -51,11 +51,25 @@ app.post('/create-page/:subject', async (req, res) => {
         }).join('');
 
         const content = `
+            <!DOCTYPE html>
+            <html lang="en">
             <html>
             <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <style>
+                    .sub-body{
+                        background-image: linear-gradient(35deg, #EA9344 15%, #B2EDD7 85%);
+                        font-family: "Quicksand", sans-serif;
+                        font-optical-sizing: auto;
+                        font-weight: 300px;
+                        overflow-x: hidden;
+                        font-style: normal;
+                    }
+                </style>
                 <title>${subjectName}</title>
             </head>
-            <body>
+            <body class="sub-body">
                 <h1>Welcome to ${subjectName} page</h1>
                 <h3>Uploaded Files:</h3>
                 <ul>
