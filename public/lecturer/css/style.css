@@ -63,6 +63,7 @@ body{
 }
 .sem1,.sem2{  
     border: 2px solid rgb(192, 199, 192); border-radius: 10px;
+    background-image: linear-gradient(18deg, #B2EDD7 88%, #e39e5e 12%);
 }
 .ul1,.ul2,.ul3,.ul4,.ul5,.ul6,.ul7,.ul8{
     display: block;

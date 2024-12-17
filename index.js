@@ -157,7 +157,7 @@ app.post('/upload/:subject', upload.single('file'), async (req, res) => {
                 </style>
                     <title>${subjectName}</title>
                 </head>
-                <body>
+                <body class="sub-body">
                     <h1>Welcome to ${subjectName} page</h1>
                     <h3>Uploaded Files:</h3>
                     <ul>
@@ -204,7 +204,7 @@ app.post('/upload/:subject', upload.single('file'), async (req, res) => {
                 </style>
                     <title>${subjectName}</title>
                 </head>
-                <body>
+                <body class="sub-body">
                     <h1>Welcome to ${subjectName} page</h1>
                     <h3>Uploaded Files:</h3>
                     <ul>
