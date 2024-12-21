@@ -70,6 +70,43 @@ body{
     position: relative;
 }
 
+@media screen and (max-width: 980px) {
+    .con1-body {
+        flex-direction: column-reverse;
+        text-align: center;
+    }
+}
+@media screen and (max-width: 736px) {
+    .con1-body .img-study img{
+        width: 12em;
+    }
+}
+@media screen and (max-width: 980px) {
+    .con1-body .img-study img{
+       
+        flex: 0 1 auto;
+        width: 100%;
+    }
+}
+@media screen and (max-width:980px) {
+    .sub a{
+        padding-right: 30px;
+    }
+}
+@media screen and (max-width:980px) {
+    .list-group div button{
+        margin: 5px;
+    }
+}
+@media (max-width: 768px) 
+{ 
+    button 
+    { padding: 12px; font-size: 16px; } 
+} 
+@media (max-width: 480px) 
+{ 
+    button { padding: 14px; font-size: 18px; }
+}
 .sem1:hover .ul1{
     display: block;
     position: relative;
@@ -228,7 +265,7 @@ a{
 
 .con1-body{
     display: flex;
-    justify-content: space-between;
+    text-align: center;
 }
 .navbar-brand{
     margin: 15px;
