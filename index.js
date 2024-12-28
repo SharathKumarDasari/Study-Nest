@@ -45,7 +45,6 @@ app.post('/create-page/:subject', async (req, res) => {
             return `
                 <li>
                     <a href="/uploads/${file.filename}" target="_blank">${file.filename}</a>
-                    <button onclick="deleteFile('${subjectName}', '${file.filename}')" class="btn btn-danger btn-sm ml-3">Delete</button>
                 </li>
             `;
         }).join('');
@@ -58,27 +57,93 @@ app.post('/create-page/:subject', async (req, res) => {
                 <meta charset="UTF-8">
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
                 <style>
-                    .sub-body{
-                        height: 110vh;
-                        background-image: linear-gradient(35deg, #EA9344 15%, #B2EDD7 85%);
-                        font-family: "Quicksand", sans-serif;
-                        font-optical-sizing: auto;
-                        font-weight: 300px;
-                        font-style: normal;
-                        background-size: cover;
-                        background-repeat: no-repeat;
-                        background-position: center;
-                    }
-                </style>
+            /* Add the same CSS here or link to an external stylesheet */
+            body {
+                background-image: linear-gradient(135deg, #EA9344 30%, #B2EDD7 80%);
+                font-family: 'Quicksand', sans-serif;
+                font-size: 18px;
+                color: #333;
+                margin: 0;
+                padding: 0;
+            }
+            .sub-body {
+                height: 100vh;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: center;
+                padding: 20px;
+            }
+            h1 {
+                font-size: 3rem;
+                color: #333;
+                text-align: center;
+                margin-bottom: 20px;
+                font-weight: 700;
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            }
+            h3 {
+                font-size: 1.5rem;
+                color: #444;
+                margin-bottom: 20px;
+                text-align: center;
+                font-weight: 500;
+            }
+            ul {
+                list-style-type: none;
+                padding: 0;
+                width: 100%;
+                text-align: center;
+            }
+            ul li {
+                margin-bottom: 10px;
+                font-size: 1.1rem;
+            }
+            ul li a {
+                color: #EA9344;
+                text-decoration: none;
+                font-weight: 600;
+                transition: color 0.3s ease;
+            }
+            ul li a:hover {
+                color: #B2EDD7;
+            }
+            .btn-danger {
+                background-color: #ff4d4d;
+                color: white;
+                padding: 6px 12px;
+                border: none;
+                cursor: pointer;
+                border-radius: 5px;
+                transition: background-color 0.3s ease;
+            }
+            .btn-danger:hover {
+                background-color: #ff0000;
+            }
+            #subjectPageContainer {
+                margin-top: 30px;
+                padding: 15px;
+                background-color: rgba(255, 255, 255, 0.8);
+                border-radius: 8px;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+                width: 100%;
+                max-width: 800px;
+            }
+        </style>
                 <title>${subjectName}</title>
             </head>
             <body class="sub-body">
                 <h1>Welcome to ${subjectName} page</h1>
                 <h3>Uploaded Files:</h3>
+                
+                <div id="subjectPageContainer">
                 <ul>
                     ${fileLinks}
                 </ul>
-                <div id="subjectPageContainer"></div>
+                </div>
             </body>
             </html>
         `;
@@ -143,27 +208,93 @@ app.post('/upload/:subject', upload.single('file'), async (req, res) => {
                 <meta charset="UTF-8">
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
                 <style>
-                    .sub-body{
-                        height: 110vh;
-                        background-image: linear-gradient(35deg, #EA9344 15%, #B2EDD7 85%);
-                        font-family: "Quicksand", sans-serif;
-                        font-optical-sizing: auto;
-                        font-weight: 300px;
-                        font-style: normal;
-                        background-size: cover;
-                        background-repeat: no-repeat;
-                        background-position: center;
-                    }
-                </style>
+            /* Add the same CSS here or link to an external stylesheet */
+            body {
+                background-image: linear-gradient(135deg, #EA9344 30%, #B2EDD7 80%);
+                font-family: 'Quicksand', sans-serif;
+                font-size: 18px;
+                color: #333;
+                margin: 0;
+                padding: 0;
+            }
+            .sub-body {
+                height: 100vh;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: center;
+                padding: 20px;
+            }
+            h1 {
+                font-size: 3rem;
+                color: #333;
+                text-align: center;
+                margin-bottom: 20px;
+                font-weight: 700;
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            }
+            h3 {
+                font-size: 1.5rem;
+                color: #444;
+                margin-bottom: 20px;
+                text-align: center;
+                font-weight: 500;
+            }
+            ul {
+                list-style-type: none;
+                padding: 0;
+                width: 100%;
+                text-align: center;
+            }
+            ul li {
+                margin-bottom: 10px;
+                font-size: 1.1rem;
+            }
+            ul li a {
+                color: #EA9344;
+                text-decoration: none;
+                font-weight: 600;
+                transition: color 0.3s ease;
+            }
+            ul li a:hover {
+                color: #B2EDD7;
+            }
+            .btn-danger {
+                background-color: #ff4d4d;
+                color: white;
+                padding: 6px 12px;
+                border: none;
+                cursor: pointer;
+                border-radius: 5px;
+                transition: background-color 0.3s ease;
+            }
+            .btn-danger:hover {
+                background-color: #ff0000;
+            }
+            #subjectPageContainer {
+                margin-top: 30px;
+                padding: 15px;
+                background-color: rgba(255, 255, 255, 0.8);
+                border-radius: 8px;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+                width: 100%;
+                max-width: 800px;
+            }
+        </style>
                     <title>${subjectName}</title>
                 </head>
                 <body class="sub-body">
                     <h1>Welcome to ${subjectName} page</h1>
                     <h3>Uploaded Files:</h3>
+                    
+                    <div id="subjectPageContainer">
                     <ul>
                         <li><a href="/uploads/${file.originalname}" target="_blank">${file.originalname}</a></li>
                     </ul>
-                    <div id="subjectPageContainer"></div>
+                    </div>
                 </body>
                 </html>
             `;
@@ -190,27 +321,92 @@ app.post('/upload/:subject', upload.single('file'), async (req, res) => {
                 <meta charset="UTF-8">
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
                 <style>
-                    .sub-body{
-                        height: 110vh;
-                        background-image: linear-gradient(35deg, #EA9344 15%, #B2EDD7 85%);
-                        font-family: "Quicksand", sans-serif;
-                        font-optical-sizing: auto;
-                        font-weight: 300px;
-                        font-style: normal;
-                        background-size: cover;
-                        background-repeat: no-repeat;
-                        background-position: center;
-                    }
-                </style>
+            /* Add the same CSS here or link to an external stylesheet */
+            body {
+                background-image: linear-gradient(135deg, #EA9344 30%, #B2EDD7 80%);
+                font-family: 'Quicksand', sans-serif;
+                font-size: 18px;
+                color: #333;
+                margin: 0;
+                padding: 0;
+            }
+            .sub-body {
+                height: 100vh;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: center;
+                padding: 20px;
+            }
+            h1 {
+                font-size: 3rem;
+                color: #333;
+                text-align: center;
+                margin-bottom: 20px;
+                font-weight: 700;
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            }
+            h3 {
+                font-size: 1.5rem;
+                color: #444;
+                margin-bottom: 20px;
+                text-align: center;
+                font-weight: 500;
+            }
+            ul {
+                list-style-type: none;
+                padding: 0;
+                width: 100%;
+                text-align: center;
+            }
+            ul li {
+                margin-bottom: 10px;
+                font-size: 1.1rem;
+            }
+            ul li a {
+                color: #EA9344;
+                text-decoration: none;
+                font-weight: 600;
+                transition: color 0.3s ease;
+            }
+            ul li a:hover {
+                color: #B2EDD7;
+            }
+            .btn-danger {
+                background-color: #ff4d4d;
+                color: white;
+                padding: 6px 12px;
+                border: none;
+                cursor: pointer;
+                border-radius: 5px;
+                transition: background-color 0.3s ease;
+            }
+            .btn-danger:hover {
+                background-color: #ff0000;
+            }
+            #subjectPageContainer {
+                margin-top: 30px;
+                padding: 15px;
+                background-color: rgba(255, 255, 255, 0.8);
+                border-radius: 8px;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+                width: 100%;
+                max-width: 800px;
+            }
+        </style>
                     <title>${subjectName}</title>
                 </head>
                 <body class="sub-body">
                     <h1>Welcome to ${subjectName} page</h1>
                     <h3>Uploaded Files:</h3>
+                    <div id="subjectPageContainer">
                     <ul>
                         ${fileLinks}
                     </ul>
-                    <div id="subjectPageContainer"></div>
+                    </div>
                 </body>
                 </html>
             `;

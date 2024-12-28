@@ -25,8 +25,6 @@ function addSubject(semester) {
   addSub(subjectName);
 }
 
-
-
 function displaySubject(semester, subjectName) {
   let semesterList = document.querySelector(`.ul${semester}`);
   const listItem = document.createElement('li');

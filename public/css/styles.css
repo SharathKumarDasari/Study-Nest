@@ -85,6 +85,8 @@ button:hover {
     justify-content: start;
     border: 2px solid rgb(118, 117, 117);
     backdrop-filter: blur(10px);
+    backdrop-filter: blur(5px); 
+    background: rgba(255, 255, 255, 0.1);
 }
 #para,#para a{
     color: rgb(255, 251, 251);
@@ -108,4 +110,18 @@ button:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     max-width: 400px;
     width: 100%;
+}
+@media (max-width: 768px) {
+    .container.form-border {
+        padding: 25px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        max-width: 400px;
+        width: 100%;
+    }
+    .form-border{
+        display: flex;
+        justify-content: start;
+        border: 2px solid rgb(118, 117, 117);
+    }
 }
